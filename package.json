@@ -1,0 +1,22 @@
+{
+  "name": "echo-extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist && mkdir -p dist",
+    "build": "npm run clean && node ./scripts/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.5",
+    "esbuild-plugin-copy": "^2.1.1",
+    "typescript": "^5.4.5",
+    "@types/chrome": "^0.0.269"
+  },
+  "dependencies": {
+    "@types/react": "^19.1.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-draggable": "^4.5.0"
+  }
+}

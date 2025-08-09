@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Echo",
+  "version": "0.1.0",
+  "description": "Minimal MV3 React content UI injected via background service worker.",
+  "action": {
+    "default_title": "Echo"
+  },
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
+

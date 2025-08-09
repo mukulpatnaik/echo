@@ -1,0 +1,19 @@
+.fade-affect {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  visibility: visible;
+}
+
+.fade-hidden-affect {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hidden-transform {
+  opacity: 0;
+}
+
+.visible-transform {
+  opacity: 1;
+  visibility: visible;
+}
