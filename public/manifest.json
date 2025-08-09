@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Minimal MV3 React content UI injected via background service worker.",
   "action": {
-    "default_title": "Echo"
+    "default_title": "Echo - Click to open chat"
   },
   "permissions": [
     "scripting",

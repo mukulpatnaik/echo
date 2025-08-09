@@ -79,8 +79,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const chatRoot = document.createElement('div');
         chatRoot.id = 'aum-automation-chat-root';
         
-        // Minimal container - let the ChatWidget handle all positioning
-        // Don't set any styles that could interfere
+        // Make the container completely invisible - ChatWidget will handle its own visibility
+        chatRoot.style.position = 'fixed';
+        chatRoot.style.top = '0';
+        chatRoot.style.left = '0';
+        chatRoot.style.width = '0';
+        chatRoot.style.height = '0';
+        chatRoot.style.zIndex = '2147483647';
+        chatRoot.style.pointerEvents = 'none';
+        chatRoot.style.background = 'transparent';
+        chatRoot.style.border = 'none';
+        chatRoot.style.overflow = 'visible';
 
         console.log('[Content] Adding chat root to body...');
         document.body.appendChild(chatRoot);

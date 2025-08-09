@@ -37,13 +37,13 @@ async function ensureContentScriptLoaded(tabId: number) {
       });
       console.log('[Background] Content script injected successfully');
       
-      // Skip CSS injection - it's conflicting with React inline styles
-      // console.log('[Background] Injecting CSS files...');
-      // await chrome.scripting.insertCSS({
-      //   target: { tabId: tabId },
-      //   files: ['content.css', 'ChatWidget.css', 'popup.css']
-      // });
-      // console.log('[Background] CSS files injected successfully');
+      // Inject CSS files for additional styles
+      console.log('[Background] Injecting CSS files...');
+      await chrome.scripting.insertCSS({
+        target: { tabId: tabId },
+        files: ['content.css', 'ChatWidget.css']
+      });
+      console.log('[Background] CSS files injected successfully');
       
       // Wait a bit for the script to initialize
       await new Promise(resolve => setTimeout(resolve, 500));

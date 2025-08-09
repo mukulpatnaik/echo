@@ -27,19 +27,7 @@ await esbuild.build({
   loader: { '.ts': 'ts' },
 });
 
-// Build simple-content (the working version)
-await esbuild.build({
-  ...common,
-  entryPoints: {
-    'simple-content': path.join(root, 'src/content/simple-content.ts'),
-  },
-  outdir: path.join(root, 'dist'),
-  loader: { '.ts': 'ts' },
-});
-
-
-
-// Build content script with React - using exact same config as minimal-react which works
+// Build content script with React
 await esbuild.build({
   bundle: true,
   sourcemap: true,
@@ -66,7 +54,9 @@ await esbuild.build({
   },
 });
 
-// Build popup with React
+// Note: Popup removed - using only content injection
+// If you want a popup later, uncomment the section below:
+/*
 await esbuild.build({
   ...common,
   entryPoints: {
@@ -80,14 +70,15 @@ await esbuild.build({
     'process.env.NODE_ENV': '"production"'
   },
 });
+*/
 
 // Copy static assets
 const distDir = path.join(root, 'dist');
 await fs.mkdir(distDir, { recursive: true });
 await fs.copyFile(path.join(root, 'public/manifest.json'), path.join(distDir, 'manifest.json'));
-await fs.copyFile(path.join(root, 'public/popup.html'), path.join(distDir, 'popup.html'));
+// No popup files needed since we're using content injection only
 await fs.copyFile(path.join(root, 'src/styles/content.css'), path.join(distDir, 'content.css'));
 await fs.copyFile(path.join(root, 'src/styles/ChatWidget.css'), path.join(distDir, 'ChatWidget.css'));
-await fs.copyFile(path.join(root, 'src/styles/popup.css'), path.join(distDir, 'popup.css'));
+// Removed popup.css as we're not using a popup
 
 console.log('Build completed');
